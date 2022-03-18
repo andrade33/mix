@@ -15,10 +15,10 @@ class RegApp(QMainWindow, Ui_MainWindow):
         mixer.init()
         mixer.music.load('sound/music.mp3')
         mixer.music.set_volume(1.0)
-        #mixer.music.play()
 
         self.status = 0
         self.btnPlay_a.clicked.connect(self.statusSee)
+        
         
     def statusSee(self):
         if self.status == 0:
@@ -53,13 +53,6 @@ class RegApp(QMainWindow, Ui_MainWindow):
         return self.status
 
         ######################################
-        # Button to play music
-        if self.btnPlay_a.isCheckable():
-            self.btnPlay_a.clicked.connect(self.player)
-            
-        else:
-            self.btnPlay_a.clicked.connect(self.pause)
-        #self.btnPlay_a.clicked.connect(self.testaBtn)
         
         ######################################
         # Dial
@@ -68,15 +61,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
         self.dial_a.setNotchesVisible(True)
         self.dial_a.notchesVisible()
         self.dial_a.valueChanged.connect(self.lcd.display)
-        ######################################
-    
-
-         ######################################
-    def player(self):
-        print("dando play")    
-        mixer.music.play()
-        self.btnPlay_a.isCheckable()
-   
+        ######################################  
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
