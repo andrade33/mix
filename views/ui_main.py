@@ -130,7 +130,7 @@ class Ui_MainWindow(object):
         self.btnPlay_a.setMinimumSize(QSize(85, 30))
         self.btnPlay_a.setMaximumSize(QSize(16777215, 16777215))
         self.btnPlay_a.setCursor(QCursor(Qt.PointingHandCursor))
-        self.btnPlay_a.setCheckable(True)
+        self.btnPlay_a.setCheckable(False)
         self.btnPlay_a.setChecked(False)
 
         self.verticalLayout_7.addWidget(self.btnPlay_a, 0, Qt.AlignHCenter)
