@@ -10,16 +10,25 @@ class RegApp(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
         super(RegApp, self).__init__(parent=parent)
         self.setupUi(self)
-
-        mixer.pre_init(frequency=44100, size=-16, channels=1, buffer=512)
+        
+        ###############################################################
+        # Inicializando o mix e carregando musica 
+        mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512)
         mixer.init()
         mixer.music.load('sound/music.mp3')
         mixer.music.set_volume(1.0)
-
+        ###############################################################
+        
+        ###############################################################
+        # Status control Player
         self.status = 0
+        ###############################################################
+
+        ###############################################################
+        # Button to play/pause
         self.btnPlay_a.clicked.connect(self.statusSee)
-        
-        
+        ###############################################################
+
     def statusSee(self):
         if self.status == 0:
             print(f"Playing {self.status}")
@@ -39,18 +48,30 @@ class RegApp(QMainWindow, Ui_MainWindow):
             self.status = 1
             return self.status
         
+    ###############################################################
+    # Play Function
     def play(self):
         mixer.music.play()
         self.status = 1
         return self.status
+    ###############################################################
+
+    ###############################################################
+    # Pause Function
     def pause(self):
         mixer.music.pause()
         self.status = 2
         return self.status
+    ###############################################################
+
+    ###############################################################
+    # Pause Function
     def unpause(self):
         mixer.music.unpause()
         self.status = 2
         return self.status
+    ###############################################################
+
 
         ######################################
         
@@ -66,7 +87,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     #app.setStyle("Default")
-    #app.setStyle("Fusion")
+    app.setStyle("Fusion")
     #app.setStyle("imagine")
     #app.setStyle("Material")
     #app.setStyle("Universal")
