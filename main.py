@@ -26,10 +26,12 @@ class RegApp(QMainWindow, Ui_MainWindow):
 
         ###############################################################
         # Button to play/pause
-        self.btnPlay_a.clicked.connect(self.statusSee)
+        self.btnPlay_a.clicked.connect(self.seeStatus)
         ###############################################################
 
-    def statusSee(self):
+    ###############################################################
+    # Status Function
+    def seeStatus(self):
         if self.status == 0:
             print(f"Playing {self.status}")
             self.play()
@@ -47,7 +49,8 @@ class RegApp(QMainWindow, Ui_MainWindow):
             self.unpause()
             self.status = 1
             return self.status
-        
+    ###############################################################
+    
     ###############################################################
     # Play Function
     def play(self):
@@ -87,7 +90,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     #app.setStyle("Default")
-    app.setStyle("Fusion")
+    #app.setStyle("Fusion")
     #app.setStyle("imagine")
     #app.setStyle("Material")
     #app.setStyle("Universal")
