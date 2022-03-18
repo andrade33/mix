@@ -1,5 +1,4 @@
 
-from tokenize import String
 from pygame import mixer
 
 from PySide6.QtCore import QPropertyAnimation, QEasingCurve
