@@ -29,6 +29,21 @@ class RegApp(QMainWindow, Ui_MainWindow):
         self.btnPlay_a.clicked.connect(self.seeStatus)
         ###############################################################
 
+        ######################################
+        # Dial
+        self.dial_a.setRange(0, 99)
+        self.dial_a.setSingleStep(10)
+        self.dial_a.setNotchesVisible(True)
+        self.dial_a.notchesVisible()
+        self.dial_a.valueChanged.connect(self.lcd.display)
+        ######################################  
+
+    ###############################################################
+    # Volume Function
+    
+
+
+
     ###############################################################
     # Status Function
     def seeStatus(self):
@@ -78,14 +93,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
 
         ######################################
         
-        ######################################
-        # Dial
-        self.dial_a.setRange(0, 99)
-        self.dial_a.setSingleStep(10)
-        self.dial_a.setNotchesVisible(True)
-        self.dial_a.notchesVisible()
-        self.dial_a.valueChanged.connect(self.lcd.display)
-        ######################################  
+        
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
