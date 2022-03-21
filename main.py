@@ -1,10 +1,11 @@
 
-from PySide6.QtCore import QPropertyAnimation, QEasingCurve
+from PySide6 import QtGui
 from PySide6.QtWidgets import QLCDNumber, QApplication, QMainWindow, QStyleOptionSlider, QStyle
 from views.ui_main import Ui_MainWindow
 import sys
 
-from pygame import mixer
+from pygame import MOUSEBUTTONDOWN, mixer
+import time
 
 class RegApp(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -16,7 +17,9 @@ class RegApp(QMainWindow, Ui_MainWindow):
         mixer.pre_init(frequency=44100, size=-16, channels=2, buffer=512)
         mixer.init()
         mixer.music.load('sound/music.mp3')
-        mixer.music.set_volume(1.0)
+        mixer.music.pause()
+        mixer.music.set_volume(0.1)
+       
         ###############################################################
         
         ###############################################################
@@ -27,6 +30,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
         ###############################################################
         # Button to play/pause
         self.btnPlay_a.clicked.connect(self.seeStatus)
+        self.liga_Btn_02.clicked.connect(self.rew)
         ###############################################################
 
         ######################################
@@ -36,13 +40,23 @@ class RegApp(QMainWindow, Ui_MainWindow):
         self.dial_a.setNotchesVisible(True)
         self.dial_a.notchesVisible()
         self.dial_a.valueChanged.connect(self.lcd.display)
-        ######################################  
-
+        self.dial_a.valueChanged.connect(self.volchange)
+        ######################################
+        
     ###############################################################
     # Volume Function
+        
+    def volchange(self):
+        volume = self.dial_a.value() / 100
+        print(f"Volume: {(volume) *100 :.0f}")
+        mixer.music.set_volume(volume)
+
+    def isplaying():
+        return mixer.music.get_busy()
     
-
-
+    def rew(self):    
+        print("Rewind")
+        mixer.music.rewind()
 
     ###############################################################
     # Status Function
@@ -51,18 +65,21 @@ class RegApp(QMainWindow, Ui_MainWindow):
             print(f"Playing {self.status}")
             self.play()
             self.status = 1
+            self.btnPlay_a.setIcon(QtGui.QIcon("icons/play.svg"))
             return self.status
 
         if self.status == 1:
             print(f"Pausing {self.status}")
             self.pause()
             self.status = 2
+            self.btnPlay_a.setIcon(QtGui.QIcon("icons/pause.svg"))
             return self.status
         
         if self.status == 2:
             print(f"Unpausing {self.status}")
             self.unpause()
             self.status = 1
+            self.btnPlay_a.setIcon(QtGui.QIcon("icons/play.svg"))
             return self.status
     ###############################################################
     
@@ -89,12 +106,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
         self.status = 2
         return self.status
     ###############################################################
-
-
-        ######################################
         
-        
-
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     #app.setStyle("Default")
