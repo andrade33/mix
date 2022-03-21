@@ -42,12 +42,12 @@ class RegApp(QMainWindow, Ui_MainWindow):
         ######################################
         
         ######################################
-        # Moving the cursor from each other, but the dlx has no real time changed, 
+        # Moving the cursor from each other, but the dlz_01 (Slider Button) has no real time changed, 
         # because it has no implementation funtion for it (with event)
         self.dial_a.valueChanged.connect(self.dlz_01.setValue)
         self.dlz_01.valueChanged.connect(self.dial_a.setValue)
         ######################################
-        
+ 
     ###############################################################
     # Volume Function
     def volchange(self):
