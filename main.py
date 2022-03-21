@@ -5,7 +5,6 @@ from views.ui_main import Ui_MainWindow
 import sys
 
 from pygame import MOUSEBUTTONDOWN, mixer
-import time
 
 class RegApp(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -19,7 +18,6 @@ class RegApp(QMainWindow, Ui_MainWindow):
         mixer.music.load('sound/music.mp3')
         mixer.music.pause()
         mixer.music.set_volume(0.1)
-       
         ###############################################################
         
         ###############################################################
@@ -43,20 +41,30 @@ class RegApp(QMainWindow, Ui_MainWindow):
         self.dial_a.valueChanged.connect(self.volchange)
         ######################################
         
+        ######################################
+        # Moving the cursor from each other, but the dlx has no real time changed, 
+        # because it has no implementation funtion for it (with event)
+        self.dial_a.valueChanged.connect(self.dlz_01.setValue)
+        self.dlz_01.valueChanged.connect(self.dial_a.setValue)
+        ######################################
+        
     ###############################################################
     # Volume Function
-        
     def volchange(self):
         volume = self.dial_a.value() / 100
         print(f"Volume: {(volume) *100 :.0f}")
         mixer.music.set_volume(volume)
+    ###############################################################
 
+    ###############################################################
+    # 
     def isplaying():
         return mixer.music.get_busy()
     
     def rew(self):    
         print("Rewind")
         mixer.music.rewind()
+    ###############################################################
 
     ###############################################################
     # Status Function
@@ -100,7 +108,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
     ###############################################################
 
     ###############################################################
-    # Pause Function
+    # Unpause Function
     def unpause(self):
         mixer.music.unpause()
         self.status = 2
@@ -110,7 +118,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     #app.setStyle("Default")
-    #app.setStyle("Fusion")
+    app.setStyle("Fusion")
     #app.setStyle("imagine")
     #app.setStyle("Material")
     #app.setStyle("Universal")

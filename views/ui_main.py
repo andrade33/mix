@@ -62,6 +62,7 @@ class Ui_MainWindow(object):
 "	border-radius: 10px;\n"
 "	border: 1px solid blue;\n"
 "}\n"
+"\n"
 "")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Sunken)
@@ -117,7 +118,8 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.dlz_01.setMinimum(0)
-        self.dlz_01.setMaximum(49)
+        self.dlz_01.setMaximum(99)
+        self.dlz_01.setSingleStep(10)
         self.dlz_01.setTracking(False)
         self.dlz_01.setOrientation(Qt.Vertical)
         self.dlz_01.setTickPosition(QSlider.TicksBothSides)
@@ -186,7 +188,8 @@ class Ui_MainWindow(object):
         self.dlz_02.setMaximumSize(QSize(16777215, 200))
         self.dlz_02.setCursor(QCursor(Qt.PointingHandCursor))
         self.dlz_02.setStyleSheet(u"background-color: rgb(57, 57, 57);")
-        self.dlz_02.setMaximum(49)
+        self.dlz_02.setMaximum(99)
+        self.dlz_02.setSingleStep(10)
         self.dlz_02.setOrientation(Qt.Vertical)
         self.dlz_02.setTickPosition(QSlider.TicksBothSides)
         self.dlz_02.setTickInterval(2)
@@ -250,7 +253,7 @@ class Ui_MainWindow(object):
         self.dlz_03.setMaximumSize(QSize(16777215, 200))
         self.dlz_03.setCursor(QCursor(Qt.PointingHandCursor))
         self.dlz_03.setStyleSheet(u"background-color: rgb(57, 57, 57);")
-        self.dlz_03.setMaximum(49)
+        self.dlz_03.setMaximum(99)
         self.dlz_03.setOrientation(Qt.Vertical)
         self.dlz_03.setTickPosition(QSlider.TicksBothSides)
         self.dlz_03.setTickInterval(2)
@@ -312,7 +315,7 @@ class Ui_MainWindow(object):
         self.dlz_04.setMaximumSize(QSize(16777215, 200))
         self.dlz_04.setCursor(QCursor(Qt.PointingHandCursor))
         self.dlz_04.setStyleSheet(u"background-color: rgb(57, 57, 57);")
-        self.dlz_04.setMaximum(49)
+        self.dlz_04.setMaximum(99)
         self.dlz_04.setOrientation(Qt.Vertical)
         self.dlz_04.setTickPosition(QSlider.TicksBothSides)
         self.dlz_04.setTickInterval(2)

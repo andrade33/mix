@@ -192,7 +192,10 @@ QSlider::TicksAbove{
               <number>0</number>
              </property>
              <property name="maximum">
-              <number>49</number>
+              <number>99</number>
+             </property>
+             <property name="singleStep">
+              <number>10</number>
              </property>
              <property name="tracking">
               <bool>false</bool>
@@ -336,7 +339,10 @@ QPushButton {
               <string notr="true">background-color: rgb(57, 57, 57);</string>
              </property>
              <property name="maximum">
-              <number>49</number>
+              <number>99</number>
+             </property>
+             <property name="singleStep">
+              <number>10</number>
              </property>
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -466,7 +472,7 @@ QPushButton {
               <string notr="true">background-color: rgb(57, 57, 57);</string>
              </property>
              <property name="maximum">
-              <number>49</number>
+              <number>99</number>
              </property>
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -589,7 +595,7 @@ QPushButton {
               <string notr="true">background-color: rgb(57, 57, 57);</string>
              </property>
              <property name="maximum">
-              <number>49</number>
+              <number>99</number>
              </property>
              <property name="orientation">
               <enum>Qt::Vertical</enum>
