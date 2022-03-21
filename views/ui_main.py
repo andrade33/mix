@@ -345,7 +345,7 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.lb_a.setText(QCoreApplication.translate("MainWindow", u"ENTRADA A", None))
-        self.btnPlay_a.setText(QCoreApplication.translate("MainWindow", u"LIgar", None))
+        self.btnPlay_a.setText("")
         self.lb_b.setText(QCoreApplication.translate("MainWindow", u"ENTRADA B", None))
         self.liga_Btn_02.setText(QCoreApplication.translate("MainWindow", u"LIgar", None))
         self.lb_c.setText(QCoreApplication.translate("MainWindow", u"ENTRADA A", None))

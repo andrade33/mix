@@ -64,6 +64,7 @@ QPushButton {
 	border-radius: 10px;
 	border: 1px solid blue;
 }
+
 </string>
         </property>
         <property name="frameShape">
@@ -225,7 +226,7 @@ QSlider::TicksAbove{
               <cursorShape>PointingHandCursor</cursorShape>
              </property>
              <property name="text">
-              <string>LIgar</string>
+              <string/>
              </property>
              <property name="checkable">
               <bool>false</bool>
