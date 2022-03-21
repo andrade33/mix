@@ -4,7 +4,7 @@ from PySide6.QtWidgets import QLCDNumber, QApplication, QMainWindow, QStyleOptio
 from views.ui_main import Ui_MainWindow
 import sys
 
-from pygame import MOUSEBUTTONDOWN, mixer
+from pygame import mixer
 
 class RegApp(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -47,7 +47,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
         self.dial_a.valueChanged.connect(self.dlz_01.setValue)
         self.dlz_01.valueChanged.connect(self.dial_a.setValue)
         ######################################
- 
+        
     ###############################################################
     # Volume Function
     def volchange(self):
@@ -118,7 +118,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     #app.setStyle("Default")
-    app.setStyle("Fusion")
+    #app.setStyle("Fusion")
     #app.setStyle("imagine")
     #app.setStyle("Material")
     #app.setStyle("Universal")
