@@ -1,10 +1,15 @@
 
+
+from msilib.schema import ListBox
+from tkinter import Label
 from PySide6 import QtGui
+from PySide6.QtWidgets import QFileDialog as gf
 from PySide6.QtWidgets import QLCDNumber, QApplication, QMainWindow, QStyleOptionSlider, QStyle
+import pygame
 from views.ui_main import Ui_MainWindow
 import sys
-
 from pygame import mixer
+import os
 
 class RegApp(QMainWindow, Ui_MainWindow):
     def __init__(self, parent=None):
@@ -29,6 +34,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
         # Button to play/pause
         self.btnPlay_a.clicked.connect(self.seeStatus)
         self.liga_Btn_02.clicked.connect(self.rew)
+        self.liga_Btn_04.clicked.connect(self.openAudio)
         ###############################################################
 
         ######################################
@@ -46,7 +52,39 @@ class RegApp(QMainWindow, Ui_MainWindow):
         # because it has no implementation funtion for it (with event)
         self.dial_a.valueChanged.connect(self.dlz_01.setValue)
         self.dlz_01.valueChanged.connect(self.dial_a.setValue)
+
         ######################################
+        
+        
+    def openAudio_2(self):
+        
+        """os.walk("C:/Users/Marina/Desktop/Musics")
+        #os.fdopen(fd, "C:/Users/Marina/Desktop/Musics")"""
+        pasta = "C:/Users/Marina/Desktop/Musics/Music.mp3"
+        for diretorio, subfolder, arquivos in os.walk(pasta):
+            for arquivo in arquivos:
+                print(os.path.join(arquivo))
+        
+        mixer.music.load(pasta)
+        mixer.music.play()
+        mixer.music.set_volume(1)
+        
+
+    def openAudio(self):
+
+        playList = []
+        audioFile =  gf.getOpenFileNames(
+            self, 
+            "Select one or more files to open", 
+            "C:/Users/Marina/Desktop/Musics",
+            "Áudios (*.mp3)")
+        a = os
+        a = playList.append(audioFile)
+        mixer.music.load(a)
+        
+        mixer.music.play()
+        mixer.music.pop(0)
+        mixer.music.set_volume(1)
         
     ###############################################################
     # Volume Function
@@ -118,7 +156,7 @@ class RegApp(QMainWindow, Ui_MainWindow):
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     #app.setStyle("Default")
-    #app.setStyle("Fusion")
+    app.setStyle("Fusion")
     #app.setStyle("imagine")
     #app.setStyle("Material")
     #app.setStyle("Universal")
@@ -126,3 +164,5 @@ if __name__ == "__main__":
     window = RegApp()
     window.show()
     sys.exit(app.exec())
+
+
